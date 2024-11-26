@@ -1,1 +1,5 @@
-bai3: Pass by Value; create branch: topic/passing-parameter 
+# bai5:
+- Create a class attribute named "nbDigitalVideoDiscs" in the class DigitalVideoDisc
+- Create an instance attribute named "id" in the class DigitalVideoDisc
+## create branch: 
+*topic/class-members* 
