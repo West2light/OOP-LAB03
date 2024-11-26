@@ -1,52 +1,42 @@
-public class DigitalVideoDisc {
-    private String title;
-    private String category;
-    private String director;
-    private int length;
-    private float cost;
+Question: Is JAVA a Pass by Value or a Pass by Reference programming language? 
+=========================================================================================
+Trả lời: 
+JAVA luôn là ngôn ngữ Pass by Value, không phải Pass by Reference.
+Giải thích:
 
-    public String getTitle() {
-        return title;
-    }
+Khi truyền một biến vào phương thức:
+- Nếu đó là kiểu dữ liệu nguyên thủy (primitive types), giá trị của biến sẽ được sao chép và truyền vào. Thay đổi giá trị trong phương thức sẽ không ảnh hưởng đến giá trị ban đầu.
+- Nếu đó là đối tượng (object), giá trị tham chiếu (reference) của đối tượng sẽ được sao chép và truyền vào phương thức. Điều này có nghĩa là bạn làm việc với cùng một đối tượng trong bộ nhớ. Tuy nhiên, bản thân tham chiếu (địa chỉ) không thể thay đổi bên trong phương thức.
 
-    public String getCategory() {
-        return category;
-    }
+Tóm lại:
+JAVA truyền giá trị của tham chiếu (reference value) đối với đối tượng,
+chứ không phải chính tham chiếu. Do đó, nó vẫn là Pass by Value.
+=========================================================================================
+1. Sau khi gọi swap(jungleDVD, cinderellaDVD), tại sao tiêu đề của hai đối tượng vẫn giữ nguyên?
+=========================================================================================
+- Điều gì đã xảy ra:
+Trong Java, các tham số phương thức được truyền theo giá trị (pass by value),
+nghĩa là giá trị của các đối số (jungleDVD và cinderellaDVD)
+được sao chép vào các tham số của phương thức (o1 và o2). Trong phương thức, việc hoán đổi o1 và o2 chỉ ảnh hưởng đến bản sao của các tham chiếu, không ảnh hưởng đến các tham chiếu thực sự bên ngoài phương thức.
 
-    public String getDirector() {
-        return director;
-    }
+- Cụ thể:
+Phương thức swap hoán đổi giá trị của o1 và o2 (là các tham số cục bộ của phương thức).
+Tuy nhiên, việc này không làm thay đổi các tham chiếu gốc jungleDVD và cinderellaDVD bên ngoài phương thức.
+Do đó, thuộc tính title của các đối tượng gốc jungleDVD và cinderellaDVD vẫn không thay đổi.
 
-    public int getLength() {
-        return length;
-    }
+- Điểm mấu chốt:
+Phương thức swap không thay đổi các đối tượng thực sự hoặc tham chiếu gốc bên ngoài phương thức, nên tiêu đề (title) của chúng vẫn giữ nguyên.
+=========================================================================================
+2. Sau khi gọi changeTitle(jungleDVD, cinderellaDVD.getTitle()), tại sao tiêu đề của jungleDVD lại thay đổi?
+=========================================================================================
+- Điều gì đã xảy ra:
+Khi changeTitle được gọi, một tham chiếu đến jungleDVD được truyền vào phương thức (theo giá trị, tức là tham chiếu được sao chép). Điều này cho phép phương thức trực tiếp thay đổi đối tượng mà tham chiếu trỏ tới.
 
-    public float getCost() {
-        return cost;
-    }
+- Trong phương thức:
+Tiêu đề hiện tại của jungleDVD được lưu vào biến cục bộ oldTitle.
+Phương thức setTitle được gọi, và nó cập nhật thuộc tính title của đối tượng jungleDVD.
+Dòng dvd = new DigitalVideoDisc(oldTitle); tạo ra một đối tượng mới, nhưng chỉ gán lại tham số cục bộ dvd để trỏ đến đối tượng mới. Tham chiếu gốc đến jungleDVD bên ngoài phương thức không bị ảnh hưởng.
 
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.length = length;
-        this.cost = cost;
-    }
+- Điểm mấu chốt:
+Phương thức setTitle thay đổi trực tiếp thuộc tính title của đối tượng jungleDVD vì nó thao tác trên đối tượng gốc thông qua tham chiếu được sao chép. Tuy nhiên, việc gán lại tham số dvd trong phương thức không ảnh hưởng đến tham chiếu gốc bên ngoài.
 
-    public DigitalVideoDisc(String title) {
-        this.title = title;
-    }
-
-    public DigitalVideoDisc(String title, String category, float cost) {
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-    }
-
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.cost = cost;
-    }
-}
