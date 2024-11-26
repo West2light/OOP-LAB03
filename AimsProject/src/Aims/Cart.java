@@ -60,6 +60,48 @@ public class Cart {
 	            System.out.println("The cart is full. Cannot add both discs.");
 	        }
 	    }
+	 public void printCart() {
+	        System.out.println("\n***********************CART***********************");
+	        System.out.println("Ordered Items:");
+	        float totalCost = 0;
+
+	        for (int i = 0; i < qtyOrdered; i++) {
+	            System.out.println((i + 1) + ". " + itemsOrdered[i].toString());
+	            totalCost += itemsOrdered[i].getCost();
+	        }
+
+	        System.out.println("Total cost: $" + totalCost);
+	        System.out.println("***************************************************");
+	    }
+
+	    // Search for a DVD by ID
+	    public void searchById(int id) {
+	        boolean found = false;
+	        for (int i = 0; i < qtyOrdered; i++) {
+	            if (itemsOrdered[i].getId() == id) {
+	                System.out.println("Search result by ID: " + itemsOrdered[i].toString());
+	                found = true;
+	                break;
+	            }
+	        }
+	        if (!found) {
+	            System.out.println("No DVD found with ID: " + id);
+	        }
+	    }
+
+	    // Search for a DVD by title
+	    public void searchByTitle(String title) {
+	        boolean found = false;
+	        for (int i = 0; i < qtyOrdered; i++) {
+	            if (itemsOrdered[i].isMatch(title)) {
+	                System.out.println("Search result by Title: " + itemsOrdered[i].toString());
+	                found = true;
+	            }
+	        }
+	        if (!found) {
+	            System.out.println("No DVD found with Title: " + title);
+	        }
+	    }
 	  public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 	        boolean found = false;
 	        for (int i = 0; i < qtyOrdered; i++) {
