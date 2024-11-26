@@ -79,19 +79,15 @@ public class DigitalVideoDisc {
         this.id = nbDigitalVideoDisc;
     }
 
-    // toString() method for displaying DVD information
-    @Override
-    public String toString() {
-        return "DigitalVideoDisc{" +
-                "ID=" + id +
-                ", Title='" + title + '\'' +
-                ", Category='" + category + '\'' +
-                ", Director='" + director + '\'' +
-                ", Length=" + length +
-                ", Cost=" + cost +
-                '}';
+  public boolean isMatch(String title) {
+        return this.title.equalsIgnoreCase(title);
     }
 
+  
+    @Override
+    public String toString() {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + "$";
+    }
     
     public void setTitle(String title2) {
         this.title = title2;

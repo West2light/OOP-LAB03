@@ -1,5 +1,3 @@
-# bai5:
-- Create a class attribute named "nbDigitalVideoDiscs" in the class DigitalVideoDisc
-- Create an instance attribute named "id" in the class DigitalVideoDisc
+# bai6: Print Cart
 ## create branch: 
-*topic/class-members* 
+*feature/print-cart* 
