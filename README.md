@@ -1,5 +1,5 @@
-# Bai8
-- Re-organize my projects
-- Add Lab01 in OthersProject
+# Bai9: 
+- OthersProject
+- String, StringBuilder and StringBuffer
 ## Create branch:
-*refactor/packages *
+*topic/memory-management-string*
