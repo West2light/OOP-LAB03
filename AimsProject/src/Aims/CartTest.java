@@ -21,6 +21,10 @@ public class CartTest {
         cart.printCart();
 
         // To-do: Test the search methods here
+        cart.searchById(1);
+        cart.searchById(2);
+        cart.searchByTitle("The Lion King");
+        cart.searchByTitle("Star Wars");
     }
 }
 
