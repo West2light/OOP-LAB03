@@ -1,5 +1,4 @@
-# Bai9: 
-- OthersProject
-- String, StringBuilder and StringBuffer
+# Bai10: 
+- Demonstration
 ## Create branch:
-*topic/memory-management-string*
+*feature/demonstrate-release-flow*
