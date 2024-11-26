@@ -57,6 +57,10 @@ public class DigitalVideoDisc {
 	                ", Cost=" + cost +
 	                '}';
 	    }
+		public void setTitle(String title2) {
+			// TODO Auto-generated method stub
+			this.title = title2;
+		}
 	    
 
 }
