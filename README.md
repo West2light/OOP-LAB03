@@ -1,5 +1,5 @@
-# Bai7:
-- Create Store
-- Add 2 funcition: addDvD, removeDvD
+# Bai8
+- Re-organize my projects
+- Add Lab01 in OthersProject
 ## Create branch:
-*topic/store*
+*refactor/packages *
